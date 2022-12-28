@@ -1,0 +1,6 @@
+
+df_tirage = pd.read_csv('eurodata .csv', sep = ',', usecols=['day','month_year','num0','num1','num2','num3','num4','chance'])
+def sorter(num_arr):
+    return np.sort(num_arr)
+df_tirage[['num0', 'num1', 'num2', 'num3', 'num4']] = df_tirage.apply(lambda row : sorter(row[2:-1]), axis=1, result_type='expand')
+dtype={'num':str, 'chance':int}
